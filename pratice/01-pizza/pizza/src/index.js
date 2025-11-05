@@ -70,14 +70,47 @@ function Header() {
 }
 
 function Menu() {
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
     <div className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
+      {numPizzas > 0 && (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            // <Pizza name={pizza.name} photoName={pizza.photoName} />
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      )}
+      {/* <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price="10"
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella and spinach"
+        photoName="pizzas/funghi.jpg"
+        price="12"
+      /> */}
     </div>
   );
 }
-
+function Pizza(props) {
+  // console.log(props);
+  return (
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <div>
+        <h3>{props.pizzaObj.name}/</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
+      </div>
+    </li>
+  );
+}
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 8;
@@ -89,21 +122,22 @@ function Footer() {
   // console.log(hour);
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}. We're currently open!{" "}
+      {/* {new Date().toLocaleTimeString()}. We're currently open!{" "} */}
+      {isOpen && (
+        <div className="order">
+          <p>
+            {" "}
+            We're currently open until {closeHour}:00. Come visit us or order
+            online
+          </p>
+          <button className="btn">order</button>
+        </div>
+      )}
     </footer>
   );
   // return React.createElement("footer", null, "We're currently open!");
 }
 
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-      <h3>Pizza</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
-  );
-}
 // React version 18 run
 const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(
