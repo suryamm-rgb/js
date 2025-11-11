@@ -1,4 +1,4 @@
-# JavaScript Basics (20 Questions)
+## JavaScript Basics (20 Questions)
 
 1. Swap two numbers without using a temporary variable
 
@@ -138,17 +138,17 @@ console.log(`${fahrenheit}°F is equal to ${celsius.toFixed(2)}°C`);
 
 15. Find the LCM of two numbers.
 
-Find the first N Fibonacci numbers.
+16. Find the first N Fibonacci numbers.
 
-Print multiplication table of a number.
+17. Print multiplication table of a number.
 
-Count occurrences of a character in a string.
+18. Count occurrences of a character in a string.
 
-Check if a number is Armstrong.
+19. Check if a number is Armstrong.
 
-Reverse a number.
+20. Reverse a number.
 
-2. Functions (15 Questions)
+### Functions (15 Questions)
 
 Write a function to calculate sum of an array.
 
